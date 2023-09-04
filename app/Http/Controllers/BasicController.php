@@ -20,7 +20,10 @@ class BasicController extends Controller
         return view('product');
     }
     public function contact(){
-        return view('contact');
+        $url = "/contact";
+        $btn = "Add";
+        $title = "Contact";
+        return view('contact',['url'=> $url, 'title'=> $title, 'btn'=>$btn]);
     }
 
     public function form(Request $request){
@@ -63,13 +66,51 @@ class BasicController extends Controller
 
         $request = Registration::all();
 
-
-        // echo "<pre>";
-        // print_r($request->toArray());die;
-
         $users = compact('request');
 
         return view('user')->with($users);
 
     }
+
+
+    public function delete($id){
+
+        $new_id = $id /2323;
+        $user = Registration::find($new_id);
+        if(!is_null($user)){
+            $user->delete();
+
+        }
+        // return view('/user');
+        return redirect('/user');
+    }
+
+
+    public function edit($id){
+
+        $user = Registration::find($id);
+
+        $url = '/update' . '/' . $id;
+        $title = "Update";
+        $btn = "Update";
+        $data = compact('user','url','title','btn');
+
+        return view('/contact')->with($data);
+       
+    }
+
+    public function update($id, Request $request){
+
+        $user = Registration::find($id);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->city = $request->city;
+        $user->phone = $request->phone;
+
+        $user->save();
+
+        return redirect('/user');
+    }
+
 }

@@ -17,6 +17,7 @@
                 <th>Email</th>
                 <th>Phone</th>
                 <th>City</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -27,6 +28,10 @@
                 <td>{{$user->email}}</td>
                 <td>{{$user->phone}}</td>
                 <td>{{$user->city}}</td> 
+                <td>
+                    <a href="/edit/{{$user->c_id}}" class="btn btn-warning">Edit</a>    
+                <a href="/delete/{{$user->c_id * 2323}}" class="btn btn-danger">Delete</a>    
+                </td> 
             </tr>
             
             @endforeach
