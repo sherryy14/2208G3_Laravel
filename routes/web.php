@@ -11,7 +11,14 @@ Route::get('/post-page', [BasicController::class, 'post'])->name('post');
 Route::get('/product', [BasicController::class, 'product'])->name('product');
 
 Route::get('/user', [BasicController::class, 'user'])->name('contact.user');
+
+Route::get('/trash', [BasicController::class, 'trash'])->name('contact.deleted');
+
 Route::get('/delete/{id}', [BasicController::class, 'delete']);
+
+// permenant delete 
+Route::get('/pdelete/{id}', [BasicController::class, 'pdelete']);
+Route::get('/restore/{id}', [BasicController::class, 'restore']);
 
 Route::get('/edit/{id}', [BasicController::class, 'edit']);
 Route::post('/update/{id}', [BasicController::class, 'update']);

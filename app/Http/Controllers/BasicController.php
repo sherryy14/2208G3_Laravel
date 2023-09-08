@@ -37,7 +37,6 @@ class BasicController extends Controller
             'phone' => 'required|between:10,11',
         ],[
           'name.required'=>'Name field is required!',
-      
           'email.required'=>'Email field is required!',
           'email.email'=>'Email field must be a valid email address!',
           'email.regex'=>'Email ka pattern match nh horha',
@@ -111,6 +110,29 @@ class BasicController extends Controller
         $user->save();
 
         return redirect('/user');
+    }
+
+
+    public function trash(){
+        $user = Registration::onlyTrashed()->get();
+
+        return view('trash',['request'=>$user]);
+    }
+
+    public function restore($id){
+        $user = Registration::withTrashed()
+        ->where('c_id', $id)
+        ->restore();
+
+        return redirect('/user');
+
+    }
+
+    public function pdelete($id){
+        $user = Registration::onlyTrashed()->where('c_id', $id)->forceDelete();
+
+        return redirect('/trash');
+        
     }
 
 }

@@ -37,6 +37,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('contact.user') }}">Registered User</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('contact.deleted') }}">Deleted User</a>
+                    </li>
 
                 </ul>
             </div>

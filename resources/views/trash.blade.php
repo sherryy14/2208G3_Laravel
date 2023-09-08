@@ -4,7 +4,7 @@
 
 @section('section')
 <div class="container mt-5">
-    <h1 class="text-center">Registered User</h1>
+    <h1 class="text-center">Deleted User</h1>
 {{-- 
     <pre>
         {{print_r($request)}}
@@ -30,8 +30,8 @@
                 <td>{{$user->phone}}</td>
                 <td>{{$user->city}}</td> 
                 <td>
-                    <a href="/edit/{{$user->c_id}}" class="btn btn-warning">Edit</a>    
-                <a href="/delete/{{$user->c_id * 2323}}" class="btn btn-info">Trash</a>    
+                    <a href="/restore/{{$user->c_id}}" class="btn btn-warning">Restore</a>    
+                <a href="/pdelete/{{$user->c_id}}" class="btn btn-danger">Delete</a>    
                 </td> 
             </tr>
             

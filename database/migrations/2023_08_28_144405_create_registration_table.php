@@ -17,9 +17,11 @@ return new class extends Migration
             $table->string('email',50)->unique();
             $table->string('city',20)->nullable();
             $table->string('address',255)->default('No address');
+            $table->string('phone',20);
             $table->enum('gender',['M','F']);
             $table->string('pass',100);
             $table->timestamps(); // created_at updated_at
+            $table->softDeletes();
         });
     }
 
