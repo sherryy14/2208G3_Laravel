@@ -26,3 +26,7 @@ Route::post('/update/{id}', [BasicController::class, 'update']);
 Route::get('/contact', [BasicController::class, 'contact'])->name('contact');
 
 Route::post('/contact', [BasicController::class, 'form']);
+
+
+
+Route::get('/sessionDelete', [BasicController::class, 'sessionDelete']);
